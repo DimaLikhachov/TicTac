@@ -3,6 +3,7 @@ let myBtn = document.querySelector("#myBtn");
 let gameValue = "X";
 let N;
 let allValue = [];
+const blockSize = 5;
 myBtn.addEventListener("click", createGameField);
 
 function createGameField() {
@@ -18,7 +19,6 @@ function createGameField() {
   N = parseInt(myInpValue);
 
   allValue = new Array(N).fill(0).map(() => new Array(N).fill(""));
-  console.log(allValue);
 
   let table = document.createElement("table");
   table.classList.add("gameField");
@@ -52,7 +52,6 @@ function createGameField() {
 }
 
 function getBoxByXY(x, y) {
-  console.log(document.querySelector(`[data-x="${x}"][data-y="${y}"]`));
   return document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
 }
 
@@ -68,8 +67,6 @@ function changeGameValue() {
 }
 
 function renderWinner(winner) {
-  console.log("Win" + winner);
-
   main.innerHTML = "Победил" + " " + winner;
 }
 
@@ -83,7 +80,6 @@ function makeTurn(x, y) {
 }
 
 function findWinner() {
-  const blockSize = 5;
   for (let offsetX = 0; offsetX < N - blockSize + 1; offsetX++) {
     for (let offsetY = 0; offsetY < N - blockSize + 1; offsetY++) {
       if (checkWinner(allValue, "X", offsetX, offsetY)) {
@@ -109,7 +105,6 @@ function checkWinner(map, symb, offsetX, offsetY) {
 function checkDiagonal(map, symb, offsetX, offsetY) {
   let toright = true;
   let toleft = true;
-  const blockSize = 5;
 
   for (let i = 0; i < blockSize; i++) {
     toright &= map[i + offsetX][i + offsetY] == symb;
@@ -120,7 +115,6 @@ function checkDiagonal(map, symb, offsetX, offsetY) {
 }
 
 function checkLanes(map, symb, offsetX, offsetY) {
-  const blockSize = 5;
   let cols, rows;
   for (let col = offsetX; col < blockSize + offsetX; col++) {
     cols = true;
