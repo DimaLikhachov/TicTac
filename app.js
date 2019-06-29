@@ -16,6 +16,8 @@ function createGameField() {
     myInpValue = 10;
   }
 
+
+    
   N = parseInt(myInpValue);
 
   allValue = new Array(N).fill(0).map(() => new Array(N).fill(""));
@@ -79,6 +81,14 @@ function makeTurn(x, y) {
   }
 }
 
+
+
+
+
+
+
+
+ 
 function findWinner() {
   for (let offsetX = 0; offsetX < N - blockSize + 1; offsetX++) {
     for (let offsetY = 0; offsetY < N - blockSize + 1; offsetY++) {
