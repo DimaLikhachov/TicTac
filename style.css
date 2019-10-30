@@ -7,7 +7,7 @@ body {
 }
 
 .mainWrapper {
-  background-image: url("play.jpg") ;
+  background-image: url("play.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
